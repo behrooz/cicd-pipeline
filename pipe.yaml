@@ -1,0 +1,11 @@
+pipeline:
+  - branches:
+      stage-release:
+        - step:
+            name: "Build and test"
+            image: node:latest
+            output:
+              - dist/dibuses-frontend/**
+            script:
+              - "npm install"
+              - "./node_modules/@angular/cli/bin/ng build --output-hashing=all"
